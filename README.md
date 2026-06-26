@@ -18,7 +18,7 @@ A premium e-commerce platform that showcases Trek's complete bicycle catalog wit
 
 Want to create your own version of this project with all the content and structure? Clone this Cosmic bucket and code repository to get started instantly:
 
-[![Clone this Bucket and Code Repository](https://img.shields.io/badge/Clone%20this%20Bucket-29abe2?style=for-the-badge&logo=cosmic&logoColor=white)](https://app.cosmic-staging.com/projects/new?clone_bucket=689925374e4011d3072fe0af&clone_repository=6899282b4e4011d3072fe0d6)
+[![Clone this Bucket and Code Repository](https://img.shields.io/badge/Clone%20this%20Bucket-29abe2?style=for-the-badge&logo=cosmic&logoColor=white)](https://app.cosmic-staging.com/projects/new?clone_bucket=6a3ee1b24fa68d4bab38680a&clone_repository=6899282b4e4011d3072fe0d6)
 
 ## Prompts
 
