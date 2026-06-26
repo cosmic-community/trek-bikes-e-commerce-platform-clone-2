@@ -1,5 +1,6 @@
 import { getStories } from '@/lib/cosmic'
 import StoryGrid from '@/components/StoryGrid'
+import Link from 'next/link'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -31,54 +32,54 @@ export default async function StoriesPage() {
               const author = story.metadata?.author
               
               return (
-                <article key={story.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-200 group">
-                  {/* Story image */}
-                  {featuredImage && (
-                    <div className="aspect-video bg-gray-50">
-                      <img
-                        src={`${featuredImage.imgix_url}?w=800&h=450&fit=crop&auto=format,compress`}
-                        alt={story.metadata?.headline || story.title}
-                        width={400}
-                        height={225}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  )}
-                  
-                  {/* Story content */}
-                  <div className="p-6">
-                    <h2 className="font-semibold text-xl mb-3 group-hover:text-trek-blue transition-colors">
-                      <a href={`/stories/${story.slug}`}>
-                        {story.metadata?.headline || story.title}
-                      </a>
-                    </h2>
-                    
-                    {story.metadata?.excerpt && (
-                      <p className="text-gray-600 mb-4 line-clamp-3">
-                        {story.metadata.excerpt}
-                      </p>
+                <Link key={story.id} href={`/stories/${story.slug}`} className="group block">
+                  <article className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-200">
+                    {/* Story image */}
+                    {featuredImage && (
+                      <div className="aspect-video bg-gray-50">
+                        <img
+                          src={`${featuredImage.imgix_url}?w=800&h=450&fit=crop&auto=format,compress`}
+                          alt={story.metadata?.headline || story.title}
+                          width={400}
+                          height={225}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
                     )}
                     
-                    {/* Meta info */}
-                    <div className="flex items-center text-sm text-gray-500">
-                      {author && (
-                        <span>By {author}</span>
+                    {/* Story content */}
+                    <div className="p-6">
+                      <h2 className="font-semibold text-xl mb-3 group-hover:text-trek-blue transition-colors">
+                        {story.metadata?.headline || story.title}
+                      </h2>
+                      
+                      {story.metadata?.excerpt && (
+                        <p className="text-gray-600 mb-4 line-clamp-3">
+                          {story.metadata.excerpt}
+                        </p>
                       )}
-                      {author && publishDate && (
-                        <span className="mx-2">•</span>
-                      )}
-                      {publishDate && (
-                        <span>
-                          {new Date(publishDate).toLocaleDateString('en-US', {
-                            month: 'long',
-                            day: 'numeric',
-                            year: 'numeric'
-                          })}
-                        </span>
-                      )}
+                      
+                      {/* Meta info */}
+                      <div className="flex items-center text-sm text-gray-500">
+                        {author && (
+                          <span>By {author}</span>
+                        )}
+                        {author && publishDate && (
+                          <span className="mx-2">•</span>
+                        )}
+                        {publishDate && (
+                          <span>
+                            {new Date(publishDate).toLocaleDateString('en-US', {
+                              month: 'long',
+                              day: 'numeric',
+                              year: 'numeric'
+                            })}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               )
             })}
           </div>
